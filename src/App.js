@@ -1,19 +1,22 @@
 import { useState } from "react";
 import Homepage from "./pages/homepage/Homepage";
-import Order from "./pages/order/Order";
+import Order from "./pages/products/Products";
 import About from "./pages/About";
 import Contact from "./pages/Contact";
 import Cart from "./pages/cart/Cart";
+import { useSelector, useDispatch } from "react-redux";
 // Bootstrap CSS
 import "bootstrap/dist/css/bootstrap.min.css";
 
 function App() {
-  const [order, setOrder] = useState("");
   const [about, setAbout] = useState("");
   const [contact, setContact] = useState("");
-  const [cart, setCart] = useState(true);
 
-  if (cart) {
+  const dispatch = useDispatch();
+
+  const { home, products, cartpage } = useSelector((state) => state.page);
+
+  if (cartpage) {
     return (
       <main>
         <Cart />
@@ -21,7 +24,7 @@ function App() {
     );
   }
 
-  if (order) {
+  if (products) {
     return (
       <main>
         <Order />

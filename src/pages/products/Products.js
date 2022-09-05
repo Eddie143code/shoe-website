@@ -1,9 +1,9 @@
 import React from "react";
 import NavbarMain from "../NavbarMain";
-import Shoe_one from "./images/one.png";
-import Shoe_two from "./images/two.png";
-import Shoe_three from "./images/three.png";
-import Shoe_four from "./images/four.png";
+import White from "./images/one.png";
+import Black from "./images/two.png";
+import Red from "./images/three.png";
+import Gray from "./images/four.png";
 
 import Container from "react-bootstrap/Container";
 import Stack from "react-bootstrap/Stack";
@@ -12,7 +12,27 @@ import Col from "react-bootstrap/Col";
 import Image from "react-bootstrap/Image";
 import Button from "react-bootstrap/Button";
 
-const Order = () => {
+import { useSelector, useDispatch } from "react-redux";
+import { navcart } from "../../features/page/pageSlice";
+import {
+  increase,
+  decrease,
+  clearCart,
+  toCart,
+} from "../../features/cart/cartSlice";
+
+const Products = () => {
+  const dispatch = useDispatch();
+
+  const cartClick = () => {
+    dispatch(navcart());
+  };
+
+  const addToCart = (e) => {
+    let id = e.currentTarget.id;
+    dispatch(toCart({ id }));
+  };
+
   return (
     <Container fluid>
       <Stack gap={5}>
@@ -29,54 +49,66 @@ const Order = () => {
           <Col lg={6}>
             <Row className="py-5 border-bottom">
               <Col>
-                <Image lg={6} src={Shoe_one} fluid width={200} />
+                <Image lg={6} src={White} fluid width={200} />
               </Col>
               <Col className="py-3" lg={3}>
                 <h1>R220</h1>
               </Col>
               <Col className="py-3" lg={3}>
-                <Button size="lg">Add the Cart</Button>
+                <Button id={1} onClick={addToCart} size="lg">
+                  Add the Cart
+                </Button>
               </Col>
             </Row>
             <Row className="py-5 border-bottom">
               <Col>
-                <Image lg={6} src={Shoe_two} rounded fluid width={200} />
+                <Image lg={6} src={Black} rounded fluid width={200} />
               </Col>
               <Col className="py-3" lg={3}>
                 <h1>R300</h1>
               </Col>
               <Col className="py-3" lg={3}>
-                <Button size="lg">Add the Cart</Button>
+                <Button id={2} onClick={addToCart} size="lg">
+                  Add the Cart
+                </Button>
               </Col>
             </Row>
             <Row className="py-5 border-bottom">
               <Col lg={6}>
-                <Image src={Shoe_three} rounded fluid width={200} />
+                <Image src={Red} rounded fluid width={200} />
               </Col>
               <Col className="py-3" lg={3}>
                 <h1>R250</h1>
               </Col>
               <Col className="py-3" lg={3}>
-                <Button size="lg">Add the Cart</Button>
+                <Button id={3} onClick={addToCart} size="lg">
+                  Add the Cart
+                </Button>
               </Col>
             </Row>
             <Row className="py-5">
               <Col lg={6}>
-                <Image src={Shoe_four} rounded fluid width={200} />
+                <Image src={Gray} rounded fluid width={200} />
               </Col>
               <Col className="py-3" lg={3}>
                 <h1>R200</h1>
               </Col>
               <Col className="py-3" lg={3}>
-                <Button size="lg">Add the Cart</Button>
+                <Button id={4} onClick={addToCart} size="lg">
+                  Add the Cart
+                </Button>
               </Col>
             </Row>
           </Col>
-          <Col lg={3}></Col>
+          <Col lg={3}>
+            <Button onClick={cartClick} size="lg">
+              Cart
+            </Button>
+          </Col>
         </Row>
       </Stack>
     </Container>
   );
 };
 
-export default Order;
+export default Products;

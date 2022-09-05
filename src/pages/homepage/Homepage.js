@@ -13,7 +13,7 @@ const Homepage = () => {
   const [featured, setFeatured] = useState(hp_1);
   const [counter, setCounter] = useState(1);
 
-  useEffect(() => {
+  /* useEffect(() => {
     setTimeout(() => {
       if (counter === 1) {
         setFeatured(hp_2);
@@ -30,7 +30,9 @@ const Homepage = () => {
         return;
       }
     }, 4500);
-  });
+  })
+
+  */
   return (
     <>
       <Container fluid>
@@ -44,7 +46,7 @@ const Homepage = () => {
             </Col>
           </Row>
           <Row>
-            <Col lg={3}>Great Value</Col>
+            <Col lg={3}></Col>
             <Col lg={8}>
               <Image src={featured} rounded fluid width={1000} />
             </Col>

@@ -7,12 +7,19 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Button from "react-bootstrap/Button";
 
-import Shoe_one from "./images/one.png";
-import Shoe_two from "./images/two.png";
-import Shoe_three from "./images/three.png";
-import Shoe_four from "./images/four.png";
+import White from "./images/one.png";
+import Black from "./images/two.png";
+import Red from "./images/three.png";
+import Gray from "./images/four.png";
+
+import { ChevronDown } from "react-bootstrap-icons";
+
+import { useSelector, useDispatch } from "react-redux";
 
 const Cart = () => {
+  const dispatch = useDispatch();
+  const { items } = useSelector((state) => state.cart);
+  console.log(items);
   return (
     <Container fluid>
       <Stack gap={5}>
@@ -27,54 +34,28 @@ const Cart = () => {
         <Row>
           <Col lg={4}></Col>
           <Col lg={4}>
-            <Row className="py-5 ">
-              <Col>
-                <Image lg={8} src={Shoe_one} fluid width={120} />
-              </Col>
-              <Col className="py-1" lg={1}>
-                <Row>^</Row>
-                <Row>^</Row>
-              </Col>
-              <Col className="py-1" lg={1}>
-                <h3>R200</h3>
-              </Col>
-            </Row>
-            <Row className="py-5">
-              <Col>
-                <Image lg={8} src={Shoe_two} rounded fluid width={120} />
-              </Col>
-              <Col className="py-1" lg={1}>
-                <Row>^</Row>
-                <Row>^</Row>
-              </Col>
-              <Col className="py-1" lg={1}>
-                <h3>R200</h3>
-              </Col>
-            </Row>
-            <Row className="py-5">
-              <Col>
-                <Image lg={8} src={Shoe_three} rounded fluid width={120} />
-              </Col>
-              <Col className="py-1" lg={1}>
-                <Row>^</Row>
-                <Row>^</Row>
-              </Col>
-              <Col className="py-1" lg={1}>
-                <h3>R200</h3>
-              </Col>
-            </Row>
-            <Row className="py-5">
-              <Col>
-                <Image lg={8} src={Shoe_four} rounded fluid width={120} />
-              </Col>
-              <Col className="py-1" lg={1}>
-                <Row>^</Row>
-                <Row>^</Row>
-              </Col>
-              <Col className="py-1" lg={1}>
-                <h3>R200</h3>
-              </Col>
-            </Row>
+            {items &&
+              items.map((item) => {
+                if (!item.inCart) {
+                  return;
+                }
+                return (
+                  <Row key={item.id} className="py-5 ">
+                    <Col>
+                      <Image lg={8} src={item.name} fluid width={120} />
+                    </Col>
+                    <Col className="py-1" lg={1}>
+                      <Row>^</Row>
+                      <Row>
+                        <ChevronDown size={20} />
+                      </Row>
+                    </Col>
+                    <Col className="py-1" lg={1}>
+                      <h3>{item.price}</h3>
+                    </Col>
+                  </Row>
+                );
+              })}
           </Col>
           <Row className=" py-2">
             <Col lg={4}></Col>
