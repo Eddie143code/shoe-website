@@ -35,6 +35,8 @@ const initialState = {
       price: 200,
     },
   ],
+  total: 0,
+  amount: 0,
 };
 
 export const cartSlice = createSlice({
@@ -43,17 +45,23 @@ export const cartSlice = createSlice({
   reducers: {
     increase: (state, action) => {
       state.items = state.items.map((item) => {
-        if (item.id === action.payload.id) {
+        if (item.id == action.payload.id) {
           item.quantity += 1;
+          state.amount += 1;
+          return item;
         }
+        return item;
       });
       return state;
     },
     decrease: (state, action) => {
       state.items = state.items.map((item) => {
-        if (item.id === action.payload.id) {
+        if (item.id == action.payload.id) {
           item.quantity -= 1;
+          state.amount -= 1;
+          return item;
         }
+        return item;
       });
       return state;
     },
@@ -64,21 +72,26 @@ export const cartSlice = createSlice({
     },
     toCart: (state, action) => {
       state.items = state.items.map((item) => {
-        let id = parseInt(action.payload.id);
         if (item.id == action.payload.id) {
-          console.log("in if statement");
           item.inCart = true;
           return item;
         }
-        console.log("item id: ", item.id);
-        console.log("payload id: ", action.payload.id);
         return item;
       });
+      return state;
+    },
+    calcTotal: (state, action) => {
+      let total = 0;
+      state.items.forEach((item) => {
+        total += item.quantity * item.price;
+      });
+      state.total = total;
       return state;
     },
   },
 });
 
-export const { increase, decrease, clearCart, toCart } = cartSlice.actions;
+export const { increase, decrease, clearCart, toCart, calcTotal } =
+  cartSlice.actions;
 
 export default cartSlice.reducer;
