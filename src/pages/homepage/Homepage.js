@@ -10,7 +10,7 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 
 const Homepage = () => {
-  const [featured, setFeatured] = useState(hp_1);
+  const [featuredImage, setFeaturedImage] = useState(hp_1);
   const [counter, setCounter] = useState(1);
 
   /* useEffect(() => {
@@ -36,23 +36,24 @@ const Homepage = () => {
   return (
     <>
       <Container fluid>
-        <Stack gap={5}>
-          <Row>
-            <Col bg="white"></Col>
-          </Row>
-          <Row>
-            <Col>
-              <NavbarMain fluid />
-            </Col>
-          </Row>
-          <Row>
-            <Col lg={3}></Col>
-            <Col lg={8}>
-              <Image src={featured} rounded fluid width={1000} />
-            </Col>
-            <Col lg={1}></Col>
-          </Row>
-        </Stack>
+        <Row className="bg-white">
+          <Col>
+            <NavbarMain fluid />
+          </Col>
+        </Row>
+        <Row
+          className="h-50 bg-light"
+          style={{ paddingTop: 200, paddingBottom: 400 }}
+        >
+          <Col lg={1}></Col>
+          <Col className="display-2" lg={3}>
+            New Sneaker BLACK Pro 1.0
+          </Col>
+          <Col className="px-5" lg={8}>
+            <Image src={featuredImage} rounded fluid width={800} />
+          </Col>
+          <Col lg={0}></Col>
+        </Row>
       </Container>
     </>
   );
