@@ -35,78 +35,76 @@ const Products = () => {
 
   return (
     <Container fluid>
-      <Stack gap={5}>
-        <Row>
-          <Col bg="white"></Col>
-        </Row>
-        <Row>
-          <Col>
-            <NavbarMain fluid />
-          </Col>
-        </Row>
-        <Row>
-          <Col lg={3}></Col>
-          <Col lg={6}>
-            <Row className="py-5 border-bottom">
-              <Col>
-                <Image lg={6} src={White} fluid width={200} />
-              </Col>
-              <Col className="py-3" lg={3}>
-                <h1>R220</h1>
-              </Col>
-              <Col className="py-3" lg={3}>
-                <Button id={1} onClick={addToCart} size="lg">
-                  Add the Cart
-                </Button>
-              </Col>
-            </Row>
-            <Row className="py-5 border-bottom">
-              <Col>
-                <Image lg={6} src={Black} rounded fluid width={200} />
-              </Col>
-              <Col className="py-3" lg={3}>
-                <h1>R300</h1>
-              </Col>
-              <Col className="py-3" lg={3}>
-                <Button id={2} onClick={addToCart} size="lg">
-                  Add the Cart
-                </Button>
-              </Col>
-            </Row>
-            <Row className="py-5 border-bottom">
-              <Col lg={6}>
-                <Image src={Red} rounded fluid width={200} />
-              </Col>
-              <Col className="py-3" lg={3}>
-                <h1>R250</h1>
-              </Col>
-              <Col className="py-3" lg={3}>
-                <Button id={3} onClick={addToCart} size="lg">
-                  Add the Cart
-                </Button>
-              </Col>
-            </Row>
-            <Row className="py-5">
-              <Col lg={6}>
-                <Image src={Gray} rounded fluid width={200} />
-              </Col>
-              <Col className="py-3" lg={3}>
-                <h1>R200</h1>
-              </Col>
-              <Col className="py-3" lg={3}>
-                <Button id={4} onClick={addToCart} size="lg">
-                  Add the Cart
-                </Button>
-              </Col>
-            </Row>
-          </Col>
-          <Col lg={3}>
-            <Button onClick={cartClick} size="lg">
-              Cart
-            </Button>
-          </Col>
-        </Row>
-      </Stack>
+      <Row>
+        <Col bg="white"></Col>
+      </Row>
+      <Row>
+        <Col>
+          <NavbarMain fluid />
+        </Col>
+      </Row>
+      <Row>
+        <Col lg={3}></Col>
+        <Col lg={6}>
+          <Row className="py-5 border-bottom">
+            <Col>
+              <Image lg={6} src={White} fluid width={200} />
+            </Col>
+            <Col className="py-3" lg={3}>
+              <h1>R220</h1>
+            </Col>
+            <Col className="py-3" lg={3}>
+              <Button id={1} onClick={addToCart} size="lg">
+                Add the Cart
+              </Button>
+            </Col>
+          </Row>
+          <Row className="py-5 border-bottom">
+            <Col>
+              <Image lg={6} src={Black} rounded fluid width={200} />
+            </Col>
+            <Col className="py-3" lg={3}>
+              <h1>R300</h1>
+            </Col>
+            <Col className="py-3" lg={3}>
+              <Button id={2} onClick={addToCart} size="lg">
+                Add the Cart
+              </Button>
+            </Col>
+          </Row>
+          <Row className="py-5 border-bottom">
+            <Col lg={6}>
+              <Image src={Red} rounded fluid width={200} />
+            </Col>
+            <Col className="py-3" lg={3}>
+              <h1>R250</h1>
+            </Col>
+            <Col className="py-3" lg={3}>
+              <Button id={3} onClick={addToCart} size="lg">
+                Add the Cart
+              </Button>
+            </Col>
+          </Row>
+          <Row className="py-5">
+            <Col lg={6}>
+              <Image src={Gray} rounded fluid width={200} />
+            </Col>
+            <Col className="py-3" lg={3}>
+              <h1>R200</h1>
+            </Col>
+            <Col className="py-3" lg={3}>
+              <Button id={4} onClick={addToCart} size="lg">
+                Add the Cart
+              </Button>
+            </Col>
+          </Row>
+        </Col>
+        <Col lg={3}>
+          <Button onClick={cartClick} size="lg">
+            Cart
+          </Button>
+        </Col>
+      </Row>
     </Container>
   );
 };

@@ -18,10 +18,10 @@ const Navbar_Main = () => {
 
   return (
     <>
-      <Navbar expand="lg" bg="light" variant="light">
+      <Navbar expand="lg">
         <Container>
           <Navbar.Brand id="home" onClick={onClick}>
-            SneakerZone
+            GolfZone
           </Navbar.Brand>
           <Nav className="me-auto">
             <Nav.Link id="home" onClick={onClick}>
@@ -30,7 +30,6 @@ const Navbar_Main = () => {
             <Nav.Link id="products" onClick={onClick}>
               Products
             </Nav.Link>
-            <Nav.Link href="#pricing">Pricing</Nav.Link>
           </Nav>
         </Container>
       </Navbar>

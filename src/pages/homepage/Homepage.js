@@ -13,41 +13,41 @@ const Homepage = () => {
   const [featuredImage, setFeaturedImage] = useState(hp_1);
   const [counter, setCounter] = useState(1);
 
-  /* useEffect(() => {
+  useEffect(() => {
     setTimeout(() => {
       if (counter === 1) {
-        setFeatured(hp_2);
+        setFeaturedImage(hp_2);
         setCounter(2);
         return;
       } else if (counter === 2) {
-        setFeatured(hp_3);
+        setFeaturedImage(hp_3);
         setCounter(3);
         return;
       }
       if (counter === 3) {
-        setFeatured(hp_1);
+        setFeaturedImage(hp_1);
         setCounter(1);
         return;
       }
-    }, 4500);
-  })
+    }, 3000);
+  });
 
-  */
   return (
     <>
       <Container fluid>
         <Row className="bg-white">
           <Col>
-            <NavbarMain fluid />
+            <NavbarMain />
           </Col>
         </Row>
         <Row
           className="h-50 bg-light"
+          bg-light
           style={{ paddingTop: 200, paddingBottom: 400 }}
         >
           <Col lg={1}></Col>
           <Col className="display-2" lg={3}>
-            New Sneaker BLACK Pro 1.0
+            Brand New Collection of Golf Shoes
           </Col>
           <Col className="px-5" lg={8}>
             <Image src={featuredImage} rounded fluid width={800} />
