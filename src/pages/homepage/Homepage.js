@@ -29,7 +29,7 @@ const Homepage = () => {
         setCounter(1);
         return;
       }
-    }, 3000);
+    }, 2500);
   });
 
   return (
@@ -41,9 +41,12 @@ const Homepage = () => {
           </Col>
         </Row>
         <Row
-          className="h-50 bg-light"
+          className="h-50 bg"
           bg-light
-          style={{ paddingTop: 200, paddingBottom: 400 }}
+          style={{
+            paddingTop: 200,
+            paddingBottom: 400,
+          }}
         >
           <Col lg={1}></Col>
           <Col className="display-2" lg={3}>

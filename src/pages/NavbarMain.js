@@ -24,7 +24,7 @@ const Navbar_Main = () => {
             GolfZone
           </Navbar.Brand>
           <Nav className="me-auto">
-            <Nav.Link id="home" onClick={onClick}>
+            <Nav.Link style={{ hover: "#fffff" }} id="home" onClick={onClick}>
               Home
             </Nav.Link>
             <Nav.Link id="products" onClick={onClick}>

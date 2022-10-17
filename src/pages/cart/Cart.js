@@ -37,16 +37,13 @@ const Cart = () => {
 
   return (
     <Container fluid>
-      <Stack gap={5}>
-        <Row>
-          <Col bg="white"></Col>
-        </Row>
+      <Stack>
         <Row>
           <Col>
             <NavbarMain fluid />
           </Col>
         </Row>
-        <Row>
+        <Row style={{ paddingTop: 200 }}>
           <Col lg={4}></Col>
           <Col lg={4}>
             {items &&
